@@ -1,0 +1,71 @@
+{
+  "winners": [
+    {
+      "seatId": "F-R-2",
+      "drawKey": "est-cola",
+      "prize": "EST Cola",
+      "label": "F16",
+      "name": "ญาณิศา มากบัว",
+      "phone": "08xxx37423",
+      "bookedSeats": [
+        "F16",
+        "F17"
+      ]
+    },
+    {
+      "seatId": "M-R-2",
+      "drawKey": "est-cola",
+      "prize": "EST Cola",
+      "label": "M16",
+      "phone": "08xxx53925",
+      "bookedSeats": [
+        "M16",
+        "M17"
+      ]
+    },
+    {
+      "seatId": "M-R-6",
+      "drawKey": "est-cola",
+      "prize": "EST Cola",
+      "label": "M20",
+      "name": "ญาสุมินทร์ พิรัมย์",
+      "phone": "08xxx11810",
+      "bookedSeats": [
+        "M20"
+      ]
+    },
+    {
+      "seatId": "M-L-1",
+      "drawKey": "est-cola",
+      "prize": "EST Cola",
+      "label": "M1",
+      "name": "กฤษฎา กาลพัฒน์",
+      "phone": "08xxx59929",
+      "bookedSeats": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "seatId": "K-L-12",
+      "drawKey": "gift-set",
+      "prize": "Gift Set",
+      "label": "K12",
+      "phone": "08xxx41186",
+      "bookedSeats": [
+        "K12"
+      ]
+    },
+    {
+      "seatId": "F-L-11",
+      "drawKey": "gift-set",
+      "prize": "Gift Set",
+      "label": "F11",
+      "name": "มณฑารัตน์ เพ็งสมบัติ",
+      "phone": "08xxx66514",
+      "bookedSeats": [
+        "F11"
+      ]
+    }
+  ]
+}

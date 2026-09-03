@@ -1,0 +1,38 @@
+{
+  "command": {
+    "id": "d69f913f-d2c9-4486-bf86-3a2b0c1d7ec7",
+    "type": "draw",
+    "drawKey": "gift-set",
+    "targetWinner": {
+      "seatId": "L-L-14",
+      "drawKey": "gift-set",
+      "prize": "Gift Set",
+      "label": "L14",
+      "name": "หทัยภัทร สืบมี",
+      "phone": "09xxx38965",
+      "bookedSeats": [
+        "L14"
+      ]
+    },
+    "animationSeed": 1378980945,
+    "animationSteps": 40,
+    "animationStartsAt": "2026-09-03T16:56:00.112Z",
+    "createdAt": "2026-09-03T16:55:59.312Z"
+  },
+  "status": {
+    "phase": "pending",
+    "activeDrawKey": "gift-set",
+    "pendingWinner": {
+      "seatId": "L-L-14",
+      "drawKey": "gift-set",
+      "prize": "Gift Set",
+      "label": "L14",
+      "name": "หทัยภัทร สืบมี",
+      "phone": "09xxx38965",
+      "bookedSeats": [
+        "L14"
+      ]
+    }
+  },
+  "updatedAt": "2026-09-03T16:56:02.397Z"
+}

@@ -1,0 +1,312 @@
+.lockScreen,
+.controller {
+  width: 100%;
+  min-height: 100dvh;
+  color: #071021;
+  background:
+    linear-gradient(rgba(255, 126, 25, 0.9), rgba(251, 73, 119, 0.94)),
+    url("/images/event-background-orange-v3.png") center / cover fixed;
+}
+
+.lockScreen {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.pinCard {
+  width: min(100%, 390px);
+  display: grid;
+  gap: 14px;
+  padding: 28px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 80px rgba(55, 8, 34, 0.3);
+}
+
+.lockMark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #361047;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.pinCard h1 {
+  margin: 0;
+  font-size: 29px;
+  letter-spacing: 0;
+}
+
+.pinCard label {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.pinCard input {
+  width: 100%;
+  height: 62px;
+  border: 2px solid #d6d9df;
+  border-radius: 8px;
+  color: #071021;
+  background: #ffffff;
+  font-size: 30px;
+  font-weight: 850;
+  letter-spacing: 0.28em;
+  text-align: center;
+  outline: none;
+}
+
+.pinCard input:focus {
+  border-color: #ff4f9a;
+  box-shadow: 0 0 0 4px rgba(255, 79, 154, 0.16);
+}
+
+.pinCard button,
+.lockButton,
+.decisionGrid button {
+  min-height: 52px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.pinCard button {
+  color: #ffffff;
+  background: #361047;
+}
+
+.errorText {
+  margin: -5px 0 0;
+  color: #c82243;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.controller {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 14px max(24px, env(safe-area-inset-bottom));
+}
+
+.controllerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.controllerHeader p {
+  margin: 0 0 2px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.controllerHeader h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+.resetButton {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  color: #361047;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(55, 8, 34, 0.2);
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.resetButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.statusPanel {
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.93);
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #17b96b;
+  box-shadow: 0 0 0 5px rgba(23, 185, 107, 0.15);
+}
+
+.statusDot.offline {
+  background: #e43e5a;
+  box-shadow: 0 0 0 5px rgba(228, 62, 90, 0.15);
+}
+
+.statusPanel div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.statusPanel small {
+  color: #6a6270;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.statusPanel strong {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drawList {
+  display: grid;
+  gap: 10px;
+}
+
+.drawButton {
+  --pool-color: #43baff;
+  --pool-soft-color: #bceeff;
+  --award-color: #ffd43b;
+  width: 100%;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 38px 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #071021;
+  background: linear-gradient(135deg, var(--pool-color), var(--pool-soft-color) 72%, #ffffff);
+  box-shadow: 0 11px 24px rgba(42, 9, 38, 0.22), inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+  font-size: 17px;
+  font-weight: 900;
+  text-align: left;
+  cursor: pointer;
+}
+
+.drawButton:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+.drawButton:disabled,
+.decisionGrid button:disabled,
+.pinCard button:disabled {
+  color: #656870;
+  background: #c9cbd0;
+  box-shadow: none;
+  filter: saturate(0);
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.drawButton strong {
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.awardDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--award-color);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.55);
+}
+
+.chairIcon {
+  position: relative;
+  display: block;
+  width: 38px;
+  height: 33px;
+  filter: drop-shadow(0 2px 3px rgba(5, 16, 31, 0.25));
+}
+
+.chairBack,
+.chairBase {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  background: var(--pool-color);
+}
+
+.chairBack {
+  top: 2px;
+  height: 22px;
+  border-radius: 6px 6px 2px 2px;
+}
+
+.chairBase {
+  bottom: 2px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.chairIcon::before,
+.chairIcon::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 2px;
+  width: 13%;
+  height: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  border-radius: 2px;
+  background: var(--pool-color);
+}
+
+.chairIcon::before { left: 2%; }
+.chairIcon::after { right: 2%; }
+
+.mixedChair .chairBack,
+.mixedChair .chairBase,
+.mixedChair::before,
+.mixedChair::after {
+  background: linear-gradient(90deg, #43baff 0 50%, #70ff59 50% 100%);
+}
+
+.decisionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.decisionGrid button {
+  color: #ffffff;
+  background: #16a85a;
+  font-size: 17px;
+}
+
+.decisionGrid button:last-child {
+  background: #e43e5a;
+}
+
+@media (min-width: 621px) {
+  .controller {
+    min-height: 100dvh;
+    border-inline: 1px solid rgba(255, 255, 255, 0.28);
+  }
+}

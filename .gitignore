@@ -1,0 +1,7 @@
+.next
+node_modules
+.playwright-cli
+.DS_Store
+*.log
+.env*
+!.env.example

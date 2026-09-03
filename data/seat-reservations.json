@@ -1,0 +1,323 @@
+{
+  "source": "26968_Allticket_2026_09_02 copy.xlsx",
+  "generatedAt": "2026-09-03T14:34:36.302Z",
+  "count": 79,
+  "reservations": {
+    "M15": {
+      "name": "",
+      "phone": "09xxx14064"
+    },
+    "L13": {
+      "name": "pattaraporn phonglapat",
+      "phone": "09xxx38965"
+    },
+    "L14": {
+      "name": "หทัยภัทร สืบมี",
+      "phone": "09xxx38965"
+    },
+    "L15": {
+      "name": "ณิชกานต์ จันทร์อ่ำ",
+      "phone": "09xxx90998"
+    },
+    "G12": {
+      "name": "LIU CHINGCHAN",
+      "phone": "06xxx40588"
+    },
+    "G13": {
+      "name": "NADIYA YEERKEN",
+      "phone": "06xxx40588"
+    },
+    "G14": {
+      "name": "",
+      "phone": "06xxx40588"
+    },
+    "J13": {
+      "name": "นริศรา เม้าเวียงแก",
+      "phone": "06xxx42362"
+    },
+    "M13": {
+      "name": "ดวงหทัย มนูพันธ์",
+      "phone": "09xxx94597"
+    },
+    "M14": {
+      "name": "ดวงหทัย มนูพันธ์",
+      "phone": "09xxx94597"
+    },
+    "J15": {
+      "name": "นฤมล เพชรศิริ",
+      "phone": "08xxx08777"
+    },
+    "K16": {
+      "name": "ณัฐติกาญจน์ รัชชนะธรรม",
+      "phone": "09xxx48614"
+    },
+    "K13": {
+      "name": "ชนิศศา สมาธิวัฒน์",
+      "phone": "08xxx09393"
+    },
+    "K14": {
+      "name": "ชนิศศา สมาธิวัฒน์",
+      "phone": "08xxx09393"
+    },
+    "F14": {
+      "name": "",
+      "phone": "08xxx22554"
+    },
+    "L16": {
+      "name": "",
+      "phone": "08xxx39391"
+    },
+    "L17": {
+      "name": "",
+      "phone": "08xxx39391"
+    },
+    "F10": {
+      "name": "Watinee Ruangchai",
+      "phone": "08xxx66514"
+    },
+    "F11": {
+      "name": "มณฑารัตน์ เพ็งสมบัติ",
+      "phone": "08xxx66514"
+    },
+    "F12": {
+      "name": "Sasitorn Seesangaum",
+      "phone": "08xxx66514"
+    },
+    "C14": {
+      "name": "สราลี อุรุพงศา",
+      "phone": "08xxx92018"
+    },
+    "L12": {
+      "name": "ภัทรินทร์ สำราญบำรุง",
+      "phone": "06xxx14411"
+    },
+    "M18": {
+      "name": "สุธิดา คงเลิศมงคล",
+      "phone": "09xxx96238"
+    },
+    "M20": {
+      "name": "ญาสุมินทร์ พิรัมย์",
+      "phone": "08xxx11810"
+    },
+    "M21": {
+      "name": "Satanan Suwonpakprak",
+      "phone": "08xxx11810"
+    },
+    "M1": {
+      "name": "กฤษฎา กาลพัฒน์",
+      "phone": "08xxx59929"
+    },
+    "M2": {
+      "name": "กฤษฎา กาลพัฒน์",
+      "phone": "08xxx59929"
+    },
+    "AA9": {
+      "name": "จันทร์จีรา แก้วเอก",
+      "phone": "09xxx65166"
+    },
+    "AA10": {
+      "name": "จันทร์จีรา แก้วเอก",
+      "phone": "09xxx65166"
+    },
+    "K12": {
+      "name": "",
+      "phone": "08xxx41186"
+    },
+    "M12": {
+      "name": "นุชญาณา นุชพงษ์",
+      "phone": "08xxx64797"
+    },
+    "M5": {
+      "name": "",
+      "phone": "08xxx61169"
+    },
+    "M6": {
+      "name": "Praelalin Keawmanee",
+      "phone": "08xxx61169"
+    },
+    "M10": {
+      "name": "Thitisuda Tonpanom",
+      "phone": "09xxx28115"
+    },
+    "K15": {
+      "name": "ณัฐนันท์ ปลาปูทอง",
+      "phone": "08xxx53142"
+    },
+    "G15": {
+      "name": "นฤมล พึ่งพงษ์ประเสริฐ",
+      "phone": "08xxx65177"
+    },
+    "G16": {
+      "name": "Titaree Watcharasathain",
+      "phone": "08xxx65177"
+    },
+    "J14": {
+      "name": "ศุธาทิพ ทองนรินทร์",
+      "phone": "06xxx70944"
+    },
+    "K17": {
+      "name": "อภิชญา โมกข์มงคลกุล",
+      "phone": "08xxx95953"
+    },
+    "F15": {
+      "name": "ธนากาญจน์ หาญกุล",
+      "phone": "06xxx25285"
+    },
+    "H14": {
+      "name": "กัญญาณัฐ สุตมาตย์",
+      "phone": "08xxx90275"
+    },
+    "M19": {
+      "name": "สุพิชญา ทุมมา",
+      "phone": "08xxx12520"
+    },
+    "L19": {
+      "name": "ศศิประภา เฮ้ามาชัย",
+      "phone": "09xxx48134"
+    },
+    "E10": {
+      "name": "",
+      "phone": "08xxx32432"
+    },
+    "E15": {
+      "name": "",
+      "phone": "08xxx45075"
+    },
+    "E16": {
+      "name": "",
+      "phone": "08xxx45075"
+    },
+    "H13": {
+      "name": "",
+      "phone": "06xxx16743"
+    },
+    "D12": {
+      "name": "อารียา ขันตี",
+      "phone": "06xxx91614"
+    },
+    "D13": {
+      "name": "อารียา ขันตี",
+      "phone": "06xxx91614"
+    },
+    "J16": {
+      "name": "ศิรินุช ทรัพย์สาร",
+      "phone": "08xxx61184"
+    },
+    "F16": {
+      "name": "ญาณิศา มากบัว",
+      "phone": "08xxx37423"
+    },
+    "F17": {
+      "name": "ญาณิศา มากบัว",
+      "phone": "08xxx37423"
+    },
+    "C13": {
+      "name": "กนกวรรณ แย้มวงษ์",
+      "phone": "06xxx19430"
+    },
+    "J17": {
+      "name": "Pannarat Suwittayarat",
+      "phone": "09xxx23225"
+    },
+    "E13": {
+      "name": "ธัญชนิด สองเมือง",
+      "phone": "09xxx56035"
+    },
+    "M9": {
+      "name": "Pannarat Suwittayarat",
+      "phone": "09xxx23225"
+    },
+    "M16": {
+      "name": "",
+      "phone": "08xxx53925"
+    },
+    "M17": {
+      "name": "",
+      "phone": "08xxx53925"
+    },
+    "M11": {
+      "name": "พุธิตา ทัศวิล",
+      "phone": "08xxx22405"
+    },
+    "M7": {
+      "name": "feggy eugueyne wulan sari",
+      "phone": "09xxx74276"
+    },
+    "M8": {
+      "name": "ชลธิชา สันตชิต",
+      "phone": "09xxx07433"
+    },
+    "D14": {
+      "name": "นพรัตน์ ใยวังหน้า",
+      "phone": "09xxx34907"
+    },
+    "L18": {
+      "name": "Shawn Chung Ming Rood",
+      "phone": "06xxx61580"
+    },
+    "K11": {
+      "name": "NAPAPUCH FANGMUANGKUK",
+      "phone": "09xxx59505"
+    },
+    "H10": {
+      "name": "Nattharadee Eamjit",
+      "phone": "08xxx39090"
+    },
+    "H11": {
+      "name": "Nattharadee Eamjit",
+      "phone": "08xxx39090"
+    },
+    "F19": {
+      "name": "Thanakon Arpangpan",
+      "phone": "06xxx20347"
+    },
+    "D11": {
+      "name": "Supharada Tessiri",
+      "phone": "08xxx47065"
+    },
+    "M4": {
+      "name": "สิรินาถ อารมย์เสรี",
+      "phone": "08xxx62793"
+    },
+    "D10": {
+      "name": "Chotika Saisamut",
+      "phone": "06xxx74606"
+    },
+    "H18": {
+      "name": "Viphavanh Thongdy",
+      "phone": "08xxx43774"
+    },
+    "F13": {
+      "name": "Thana Mm",
+      "phone": "06xxx84015"
+    },
+    "L7": {
+      "name": "Tantika Campoolee",
+      "phone": "09xxx55644"
+    },
+    "E14": {
+      "name": "Chonchaya Anutrakit",
+      "phone": "06xxx60622"
+    },
+    "D15": {
+      "name": "Boonyim Kumphai",
+      "phone": "08xxx97569"
+    },
+    "H15": {
+      "name": "Patcharee Hongthong",
+      "phone": "08xxx54615"
+    },
+    "H16": {
+      "name": "Phimphatcharee Srinonmuang",
+      "phone": "09xxx66414"
+    },
+    "L10": {
+      "name": "Kierwan Samakkan",
+      "phone": "09xxx25402"
+    },
+    "L11": {
+      "name": "Kierwan Samakkan",
+      "phone": "09xxx25402"
+    }
+  }
+}
