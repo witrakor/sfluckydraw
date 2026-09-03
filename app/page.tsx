@@ -305,10 +305,12 @@ export default function Home() {
       const rect = theaterShell.getBoundingClientRect();
       const widthScale = (rect.width - 20) / THEATER_DESIGN_WIDTH;
       const heightScale = (rect.height - 46) / THEATER_DESIGN_HEIGHT;
-      const isMobile = window.matchMedia("(max-width: 540px)").matches;
+      const useWidthOnly = window.matchMedia(
+        "(max-width: 1000px) and (min-height: 900px), (max-width: 540px)",
+      ).matches;
       const nextScale = Math.max(
         0.2,
-        Math.min(widthScale, isMobile ? widthScale : heightScale, 1.55),
+        Math.min(widthScale, useWidthOnly ? widthScale : heightScale, 1.55),
       );
       setTheaterScale((currentScale) =>
         Math.abs(currentScale - nextScale) < 0.001 ? currentScale : nextScale,
@@ -613,16 +615,46 @@ export default function Home() {
       />
       <div className="backgroundShade" />
 
-      <header className="eventTitleHeader">
-        <Image
-          alt="GELBOYS2 Fan Screen Status EP.5 Hi Hi, Khonkaen Stans, Leon's Hometown, 5 September 2026, gate opens 6:30 PM, showtime 7:00 PM"
-          className="eventTitleArtwork"
-          fill
-          priority
-          sizes="(max-width: 540px) calc(100vw - 24px), 650px"
-          src="/images/event-header-clean-type-transparent.png"
-        />
-      </header>
+      <div className="eventTop">
+        <header className="eventTitleHeader">
+          <Image
+            alt="GELBOYS2 Fan Screen Status EP.5 Hi Hi, Khonkaen Stans, Leon's Hometown, 5 September 2026, gate opens 6:30 PM, showtime 7:00 PM"
+            className="eventTitleArtwork"
+            fill
+            priority
+            sizes="(max-width: 540px) calc(100vw - 24px), 650px"
+            src="/images/event-header-clean-type-transparent.png"
+          />
+        </header>
+
+        {latestWinner ? (
+          <aside
+            className={`latestWinnerBadge${modalWinner ? " isWaiting" : ""}`}
+            key={latestWinnerSeatId}
+            ref={latestWinnerBadgeRef}
+            aria-live="polite"
+            style={{ "--latest-award-color": latestWinnerColor } as React.CSSProperties}
+          >
+            <span
+              className={`legendSeatIcon latestWinnerSeatIcon ${latestWinnerPool}`}
+              aria-hidden="true"
+            >
+              <span className="legendSeatBack" />
+              <span className="legendSeatBase" />
+            </span>
+            <span className="latestWinnerDetails">
+              <strong>{latestWinner.label}</strong>
+              <small>{latestWinner.prize}</small>
+              <span className="latestWinnerPerson">
+                {getWinnerContactLabel(latestWinner)}
+              </span>
+              {latestWinner.name && latestWinner.phone ? (
+                <span className="latestWinnerPhone">{latestWinner.phone}</span>
+              ) : null}
+            </span>
+          </aside>
+        ) : null}
+      </div>
 
       <div className="softwareCreditBar" aria-label="ผู้พัฒนาซอฟต์แวร์">
         <div className="poweredBy">
@@ -707,33 +739,6 @@ export default function Home() {
             </div>
 
           </section>
-          {latestWinner ? (
-            <aside
-              className={`latestWinnerBadge${modalWinner ? " isWaiting" : ""}`}
-              key={latestWinnerSeatId}
-              ref={latestWinnerBadgeRef}
-              aria-live="polite"
-              style={{ "--latest-award-color": latestWinnerColor } as React.CSSProperties}
-            >
-              <span
-                className={`legendSeatIcon latestWinnerSeatIcon ${latestWinnerPool}`}
-                aria-hidden="true"
-              >
-                <span className="legendSeatBack" />
-                <span className="legendSeatBase" />
-              </span>
-              <span className="latestWinnerDetails">
-                <strong>{latestWinner.label}</strong>
-                <small>{latestWinner.prize}</small>
-                <span className="latestWinnerPerson">
-                  {getWinnerContactLabel(latestWinner)}
-                </span>
-                {latestWinner.name && latestWinner.phone ? (
-                  <span className="latestWinnerPhone">{latestWinner.phone}</span>
-                ) : null}
-              </span>
-            </aside>
-          ) : null}
           <WinnerHistoryPanel className="winnerHistorySide" winners={winners} />
           <div className="ambientStars" aria-hidden="true">
             {Array.from({ length: 3 }, (_, index) => (

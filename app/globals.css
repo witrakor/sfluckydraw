@@ -41,7 +41,8 @@ button {
 
 .stage {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  min-width: 0;
   height: 100dvh;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
@@ -195,6 +196,7 @@ button {
 
 .theaterShell {
   min-height: 0;
+  min-width: 0;
   width: 100%;
   height: 100%;
   display: grid;
@@ -299,9 +301,22 @@ button {
 
 .eventTitleHeader {
   position: relative;
-  width: min(650px, calc(100vw - 220px));
+  grid-column: 2;
+  justify-self: center;
+  width: 100%;
   aspect-ratio: 1945 / 809;
-  margin: 6px auto 2px;
+  margin: 0;
+}
+
+.eventTop {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 310px minmax(0, 650px) 310px;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px 2px;
 }
 
 .eventTitleArtwork {
@@ -1008,10 +1023,11 @@ h2 {
 }
 
 .latestWinnerBadge {
-  position: absolute;
+  position: relative;
   z-index: 13;
-  top: -112px;
-  right: 0;
+  grid-column: 3;
+  top: auto;
+  right: auto;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   align-items: center;
@@ -1182,22 +1198,23 @@ h2 {
   left: calc(100% + 28px);
   width: 292px;
   max-height: calc(100% - 68px);
-  padding: 18px;
-  overflow: hidden;
+  padding: 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .winnerHistory.winnerHistorySide h3 {
-  margin-bottom: 14px;
-  font-size: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .winnerHistorySide .winnerHistoryGroups {
-  gap: 12px;
+  gap: 8px;
 }
 
 .winnerHistorySide .winnerHistoryGroup {
-  gap: 7px;
-  padding-top: 10px;
+  gap: 5px;
+  padding-top: 7px;
 }
 
 .winnerHistorySide .winnerHistoryGroup header {
@@ -1226,8 +1243,8 @@ h2 {
 .winnerHistorySide .winnerHistoryRecord {
   grid-template-columns: 44px minmax(0, 1fr);
   gap: 2px 8px;
-  min-height: 46px;
-  padding: 7px 8px;
+  min-height: 40px;
+  padding: 5px 7px;
   border-radius: 6px;
 }
 
@@ -1455,37 +1472,61 @@ h2 {
 }
 
 @media (max-width: 1400px) {
+  .eventTop {
+    grid-template-columns: minmax(0, 650px) 280px;
+    gap: 16px;
+  }
+
+  .eventTitleHeader {
+    grid-column: 1;
+  }
+
+  .latestWinnerBadge {
+    grid-column: 2;
+    width: 100%;
+  }
+
   .winnerHistorySide {
     display: none;
   }
 
-  .winnerHistoryInline {
+  .winnerHistoryMobile {
     display: block;
-    max-width: 1180px;
-    margin: 7px auto 0;
-    padding: 7px 9px;
+    width: min(1180px, calc(100% - 20px));
+    margin: 0 auto 8px;
+    padding: 8px 10px;
+    overflow: hidden;
   }
 
-  .winnerHistoryInline h3 {
-    margin-bottom: 5px;
-    font-size: 11px;
+  .winnerHistoryMobile h3 {
+    margin-bottom: 6px;
+    font-size: 13px;
   }
 
-  .winnerHistoryInline .winnerHistoryGroups {
+  .winnerHistoryMobile .winnerHistoryGroups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .winnerHistoryMobile .winnerHistoryGroup {
+    gap: 5px;
+    padding-top: 6px;
+  }
+
+  .winnerHistoryMobile .winnerHistorySeats {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
   }
 
-  .winnerHistoryInline .winnerHistoryGroup {
-    padding-top: 5px;
+  .winnerHistoryMobile .winnerHistoryRecord {
+    grid-template-columns: 30px minmax(0, 1fr);
+    min-height: 38px;
+    padding: 5px;
   }
 }
 
 @media (max-width: 1180px) {
   .latestWinnerBadge {
-    top: -96px;
-    right: 0;
-    width: 260px;
+    width: 100%;
     min-width: 190px;
     min-height: 76px;
   }
@@ -1496,9 +1537,14 @@ h2 {
 }
 
 @media (max-width: 900px) {
+  .eventTop {
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 12px;
+    padding-inline: 10px;
+  }
+
   .eventTitleHeader {
-    width: min(620px, calc(100vw - 128px));
-    margin-top: 5px;
+    width: 100%;
   }
 
   .eventHeader {
@@ -1536,7 +1582,7 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .winnerHistoryInline .winnerHistoryGroups {
+  .winnerHistoryMobile .winnerHistorySeats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1568,7 +1614,24 @@ h2 {
 
 }
 
-@media (max-width: 540px) {
+@media (max-width: 700px) {
+  .eventTop {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .eventTitleHeader,
+  .latestWinnerBadge {
+    grid-column: 1;
+  }
+
+  .latestWinnerBadge {
+    justify-self: end;
+    width: min(280px, 72vw);
+  }
+}
+
+@media (max-width: 1000px) and (min-height: 900px) {
   html,
   body {
     height: auto;
@@ -1580,14 +1643,44 @@ h2 {
   .stage {
     height: auto;
     min-height: 100dvh;
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    overflow: visible;
+  }
+
+  .theaterShell {
+    height: auto;
+    min-height: 0;
+    place-items: start center;
+    padding-block: 8px 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .stage {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
     grid-template-rows: auto auto;
     align-content: start;
     overflow: visible;
   }
 
   .eventTitleHeader {
-    width: calc(100vw - 24px);
-    margin-top: 4px;
+    width: calc(100% - 24px);
+    margin: 0 auto;
+  }
+
+  .eventTop {
+    width: 100%;
   }
 
   .softwareCreditBar {
@@ -1611,10 +1704,11 @@ h2 {
   }
 
   .theaterShell {
+    width: 100%;
     height: auto;
     min-height: 0;
     place-items: start center;
-    padding: 84px 6px 24px;
+    padding: 6px 6px 24px;
   }
 
   .theaterFrame {
@@ -1622,13 +1716,14 @@ h2 {
   }
 
   .theaterFrame.isMeasuring {
-    width: calc(100vw - 20px) !important;
-    height: calc(64.41vw - 13px) !important;
+    width: calc(100% - 8px) !important;
+    aspect-ratio: 1180 / 760;
+    height: auto !important;
   }
 
   .winnerHistoryMobile {
     display: block;
-    width: calc(100vw - 24px);
+    width: calc(100% - 24px);
     margin: 0 auto 24px;
     padding: 16px;
   }
@@ -1726,11 +1821,12 @@ h2 {
   }
 
   .latestWinnerBadge {
-    top: -76px;
-    right: 0;
+    top: auto;
+    right: auto;
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 7px;
     width: 210px;
+    max-width: calc(100% - 12px);
     min-width: 140px;
     min-height: 58px;
     padding: 5px 8px;
@@ -1795,8 +1891,7 @@ h2 {
 
 @media (max-height: 760px) {
   .eventTitleHeader {
-    width: min(500px, calc(100vw - 24px));
-    margin-top: 2px;
+    max-width: 500px;
   }
 
   .eventHeader {
