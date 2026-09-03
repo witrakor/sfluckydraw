@@ -39,7 +39,7 @@ export type ControlState = {
   updatedAt: string;
 };
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.DATA_DIR ?? path.join(process.cwd(), "data");
 const DATA_FILE = path.join(DATA_DIR, "control.json");
 
 export const EMPTY_CONTROL_STATUS: ControlStatus = {

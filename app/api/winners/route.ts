@@ -25,7 +25,7 @@ function getBookedSeats(reservation: Reservation) {
     .sort((left, right) => left.localeCompare(right, undefined, { numeric: true }));
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.DATA_DIR ?? path.join(process.cwd(), "data");
 const DATA_FILE = path.join(DATA_DIR, "winners.json");
 const DRAW_RULES = {
   "est-cola": {

@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
   response.cookies.set(CONTROLLER_COOKIE, controllerSessionValue(), {
     httpOnly: true,
     sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
     path: "/",
     maxAge: 60 * 60 * 12,
   });

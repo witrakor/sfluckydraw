@@ -1,0 +1,9 @@
+.git
+.next
+node_modules
+.playwright-cli
+.DS_Store
+*.log
+.env*
+Dockerfile*
+README.md

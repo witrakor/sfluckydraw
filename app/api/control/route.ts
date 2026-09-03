@@ -39,7 +39,8 @@ const PRIZES: Record<AwardDrawKey, Winner["prize"]> = {
   "gift-set": "Gift Set",
 };
 const QUOTA = 4;
-const WINNERS_FILE = path.join(process.cwd(), "data", "winners.json");
+const DATA_DIR = process.env.DATA_DIR ?? path.join(process.cwd(), "data");
+const WINNERS_FILE = path.join(DATA_DIR, "winners.json");
 type Reservation = { name: string; phone: string };
 const RESERVATIONS = seatReservationsData.reservations as Record<string, Reservation>;
 
