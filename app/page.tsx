@@ -608,6 +608,9 @@ export default function Home() {
                 "--theater-scale": theaterScale,
                 "--theater-width": `${THEATER_DESIGN_WIDTH}px`,
                 "--theater-height": `${THEATER_DESIGN_HEIGHT}px`,
+                "--active-award-color": activeDraw
+                  ? DRAW_CONFIG[activeDraw].color
+                  : DRAW_CONFIG["est-cola"].color,
               } as React.CSSProperties
             }
           >

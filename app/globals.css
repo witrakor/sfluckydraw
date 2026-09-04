@@ -590,10 +590,11 @@ button {
 }
 
 .seat.activeSeat {
-  --seat-fill: #ff1f5a;
+  --seat-fill: var(--active-award-color);
   --seat-stroke: #ffffff;
   animation: seatFlash 180ms ease-out both;
-  filter: drop-shadow(0 0 10px rgba(255, 31, 90, 0.85)) drop-shadow(0 0 18px rgba(255, 207, 51, 0.7));
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--active-award-color), transparent 15%))
+    drop-shadow(0 0 18px color-mix(in srgb, var(--active-award-color), white 28%));
   transform: scale(1.3);
   z-index: 4;
 }
@@ -602,8 +603,13 @@ button {
 .activeSeat .seatBase,
 .activeSeat::before,
 .activeSeat::after {
-  background: #ff1f5a;
+  background: var(--active-award-color);
   box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18), 0 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.seat.activeSeat .seatLabel {
+  color: #090713;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.38);
 }
 
 .seat.winnerSeat {
