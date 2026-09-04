@@ -463,6 +463,20 @@ button {
   filter: drop-shadow(0 0 3px rgba(10, 8, 20, 0.24));
 }
 
+.coolRow .seat.unavailableSeat:not(.activeSeat):not(.winnerSeat) {
+  --seat-fill: #43baff;
+  --seat-stroke: #70e4ff;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px rgba(67, 186, 255, 0.58));
+}
+
+.limeRow .seat.unavailableSeat:not(.activeSeat):not(.winnerSeat) {
+  --seat-fill: #70ff59;
+  --seat-stroke: #a9ff8d;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px rgba(112, 255, 89, 0.54));
+}
+
 .seat.unavailableSeat .seatLabel {
   opacity: 0;
 }

@@ -109,6 +109,7 @@ const DRAW_CONFIG: Record<
 const LEGACY_AWARD_COLOR = "#f7ff39";
 const THEATER_DESIGN_WIDTH = 1180;
 const THEATER_DESIGN_HEIGHT = 760;
+const FULL_ZONE_ANIMATION_MS = 3000;
 const WINNER_NOTES = [523.25, 659.25, 783.99, 1046.5];
 const CONFETTI = Array.from({ length: 20 }, (_, index) => index);
 
@@ -367,6 +368,9 @@ export default function Home() {
       const label = getSeatLabel(seat);
       return ELIGIBLE_ROWS.has(seat.row) && SEAT_RESERVATIONS.has(label) && !winnerBySeat.has(seat.id);
     });
+    const fullZoneAnimationSeats = seats.filter((seat) => (
+      ELIGIBLE_ROWS.has(seat.row) && !winnerBySeat.has(seat.id)
+    ));
 
     if (eligibleSeats.length === 0) {
       if (commandId) void updateControlStatus(commandId, {
@@ -386,6 +390,7 @@ export default function Home() {
     });
 
     let step = 0;
+    const animationStartedAt = performance.now();
     const random = animationSeed === undefined ? Math.random : createSeededRandom(animationSeed);
     const maxSteps = animationSteps ?? 40;
     const target = targetWinner
@@ -404,7 +409,11 @@ export default function Home() {
 
     const animate = () => {
       step += 1;
-      const poolSeat = eligibleSeats[Math.floor(random() * eligibleSeats.length)];
+      const elapsed = performance.now() - animationStartedAt;
+      const animationPool = elapsed < FULL_ZONE_ANIMATION_MS
+        ? fullZoneAnimationSeats
+        : eligibleSeats;
+      const poolSeat = animationPool[Math.floor(random() * animationPool.length)];
       const currentSeat = step >= maxSteps ? target : poolSeat;
       setActiveSeatId(currentSeat.id);
 
