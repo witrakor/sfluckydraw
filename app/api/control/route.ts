@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
     drawKey: body.type === "draw" ? body.drawKey : undefined,
     targetWinner: body.type === "draw" ? targetWinner : undefined,
     animationSeed: body.type === "draw" ? randomInt(1, 2_147_483_647) : undefined,
-    animationSteps: body.type === "draw" ? randomInt(34, 42) : undefined,
+    animationSteps: body.type === "draw" ? 57 : undefined,
     animationStartsAt: body.type === "draw"
       ? new Date(Date.now() + 800).toISOString()
       : undefined,

@@ -419,7 +419,7 @@ export default function Home() {
 
     let step = 0;
     const random = animationSeed === undefined ? Math.random : createSeededRandom(animationSeed);
-    const maxSteps = animationSteps ?? 34 + Math.floor(random() * 8);
+    const maxSteps = animationSteps ?? 57;
     const target = targetWinner
       ? eligibleSeats.find((seat) => seat.id === targetWinner.seatId)
       : eligibleSeats[Math.floor(Math.random() * eligibleSeats.length)];
@@ -469,7 +469,7 @@ export default function Home() {
 
       const progress = step / maxSteps;
       const easeOut = progress * progress;
-      const delay = 24 + Math.round(easeOut * 118);
+      const delay = 58 + Math.round(easeOut * 135);
       timerRef.current = window.setTimeout(animate, delay);
     };
 
