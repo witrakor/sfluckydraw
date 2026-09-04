@@ -463,7 +463,7 @@ export default function Home() {
             activeDrawKey: drawKey,
             pendingWinner: nextWinner,
           });
-        }, 1000);
+        }, 2000);
         return;
       }
 
