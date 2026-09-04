@@ -571,13 +571,25 @@ export default function Home() {
 
       <div className="eventTop">
         <header className="eventTitleHeader">
+          <div className="eventGbsLogo" aria-hidden="true">
+            <Image
+              alt=""
+              className="eventGbsLogoImage"
+              fill
+              priority
+              sizes="180px"
+              src="/images/gbs2-logo.png?v=20260904-logo"
+              unoptimized
+            />
+          </div>
           <Image
             alt="GELBOYS2 Fan Screen Status EP.5 Hi Hi, Khonkaen Stans, Leon's Hometown, 5 September 2026, gate opens 6:30 PM, showtime 7:00 PM"
             className="eventTitleArtwork"
             fill
             priority
             sizes="(max-width: 540px) calc(100vw - 24px), 650px"
-            src="/images/event-header-clean-type-transparent.png"
+            src="/images/event-header-final-transparent.png?v=20260904-header"
+            unoptimized
           />
         </header>
       </div>
@@ -701,8 +713,9 @@ export default function Home() {
                 alt=""
                 className="winnerBrandImage"
                 fill
-                sizes="180px"
-                src="/images/gelboy-transparent.png"
+                sizes="300px"
+                src="/images/gbs2-logo.png?v=20260904-logo"
+                unoptimized
               />
             </div>
             <p className="winnerKicker">CONGRATULATIONS</p>
