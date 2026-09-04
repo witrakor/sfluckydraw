@@ -419,7 +419,7 @@ export default function Home() {
 
     let step = 0;
     const random = animationSeed === undefined ? Math.random : createSeededRandom(animationSeed);
-    const maxSteps = animationSteps ?? 57;
+    const maxSteps = animationSteps ?? 40;
     const target = targetWinner
       ? eligibleSeats.find((seat) => seat.id === targetWinner.seatId)
       : eligibleSeats[Math.floor(Math.random() * eligibleSeats.length)];
@@ -452,7 +452,7 @@ export default function Home() {
           bookedSeats: reservation ? getBookedSeats(reservation) : [getSeatLabel(target)],
         };
 
-        window.setTimeout(() => {
+        timerRef.current = window.setTimeout(() => {
           setPendingWinner(nextWinner);
           setModalWinner(nextWinner);
           setActiveDraw(null);
@@ -463,13 +463,13 @@ export default function Home() {
             activeDrawKey: drawKey,
             pendingWinner: nextWinner,
           });
-        }, 220);
+        }, 1000);
         return;
       }
 
       const progress = step / maxSteps;
       const easeOut = progress * progress;
-      const delay = 58 + Math.round(easeOut * 135);
+      const delay = 120 + Math.round(easeOut * 100);
       timerRef.current = window.setTimeout(animate, delay);
     };
 
