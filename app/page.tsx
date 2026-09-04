@@ -166,9 +166,6 @@ export default function Home() {
   const [pendingWinner, setPendingWinner] = useState<Winner | null>(null);
   const [isDecisionSaving, setIsDecisionSaving] = useState(false);
   const [modalWinner, setModalWinner] = useState<Winner | null>(null);
-  const [modalCountdown, setModalCountdown] = useState(10);
-  const [isModalDeparting, setIsModalDeparting] = useState(false);
-  const [winnerFlightTarget, setWinnerFlightTarget] = useState<{ x: number; y: number } | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [theaterScale, setTheaterScale] = useState(1);
   const [isTheaterMeasured, setIsTheaterMeasured] = useState(false);
@@ -265,6 +262,7 @@ export default function Home() {
 
           if (state.status.pendingWinner) {
             setPendingWinner(state.status.pendingWinner);
+            setModalWinner(state.status.pendingWinner);
           }
 
           if (state.command && state.status.phase !== "idle" && state.status.phase !== "pending") {
@@ -323,36 +321,6 @@ export default function Home() {
       window.removeEventListener("resize", updateScale);
     };
   }, []);
-
-  useEffect(() => {
-    if (!modalWinner) return;
-
-    setModalCountdown(10);
-    setIsModalDeparting(false);
-    setWinnerFlightTarget(null);
-    let departureTimer: number | null = null;
-
-    const countdownTimer = window.setInterval(() => {
-      setModalCountdown((current) => {
-        if (current <= 1) {
-          window.clearInterval(countdownTimer);
-          setIsModalDeparting(true);
-          departureTimer = window.setTimeout(() => {
-            setModalWinner(null);
-            setIsModalDeparting(false);
-          }, 950);
-          return 0;
-        }
-
-        return current - 1;
-      });
-    }, 1000);
-
-    return () => {
-      window.clearInterval(countdownTimer);
-      if (departureTimer) window.clearTimeout(departureTimer);
-    };
-  }, [modalWinner]);
 
   const winnerBySeat = useMemo(() => {
     return new Map(winners.map((winner) => [winner.seatId, winner]));
@@ -495,7 +463,6 @@ export default function Home() {
       setWinners(Array.isArray(data.winners) ? data.winners : [...winners, pendingWinner]);
       setPendingWinner(null);
       setModalWinner(null);
-      setIsModalDeparting(false);
       if (commandId) await updateControlStatus(commandId, {
         phase: "idle",
         activeDrawKey: null,
@@ -516,8 +483,6 @@ export default function Home() {
     if (!pendingWinner || isDecisionSaving) return;
     setPendingWinner(null);
     setModalWinner(null);
-    setIsModalDeparting(false);
-    setWinnerFlightTarget(null);
     setActiveSeatId(null);
     if (commandId) void updateControlStatus(commandId, {
       phase: "idle",
@@ -701,17 +666,15 @@ export default function Home() {
 
       {modalWinner ? (
         <div
-          className={`modalBackdrop${isModalDeparting ? " isDeparting" : ""}`}
+          className="modalBackdrop"
           role="dialog"
           aria-modal="true"
           aria-label="ผลการสุ่ม"
         >
           <div
-            className={`winnerModal${isModalDeparting ? " isDeparting" : ""}`}
+            className="winnerModal"
             style={
               {
-                "--flight-target-x": `${winnerFlightTarget?.x ?? window.innerWidth - 120}px`,
-                "--flight-target-y": `${winnerFlightTarget?.y ?? 120}px`,
                 "--modal-award-color": DRAW_CONFIG[modalWinner.drawKey].color,
               } as React.CSSProperties
             }
@@ -740,13 +703,6 @@ export default function Home() {
               <span>{modalWinner.phone || (!modalWinner.name ? "ไม่มีข้อมูลผู้จอง" : "")}</span>
             </div>
             <p className="winnerPrize">รับรางวัล {modalWinner.prize}</p>
-            <div
-              className="winnerCountdown"
-              aria-label={`ปิดอัตโนมัติใน ${modalCountdown} วินาที`}
-              aria-live="polite"
-            >
-              <strong>{modalCountdown}</strong>
-            </div>
           </div>
         </div>
       ) : null}

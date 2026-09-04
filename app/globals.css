@@ -896,10 +896,6 @@ h2 {
   animation: modalFadeIn 220ms ease-out both;
 }
 
-.modalBackdrop.isDeparting {
-  animation: modalBackdropOut 900ms ease-in forwards;
-}
-
 .winnerModal {
   position: relative;
   width: min(560px, 100%);
@@ -911,11 +907,6 @@ h2 {
   text-align: center;
   box-shadow: 0 36px 110px rgba(3, 18, 32, 0.46);
   animation: winnerModalIn 480ms cubic-bezier(0.2, 0.9, 0.25, 1.18) both;
-}
-
-.winnerModal.isDeparting {
-  transform-origin: center;
-  animation: winnerModalToBadge 900ms cubic-bezier(0.32, 0.02, 0.16, 1) forwards;
 }
 
 .winnerModal::before {
@@ -932,8 +923,7 @@ h2 {
 .winnerBrand,
 .winnerModal p,
 .winnerModal h2,
-.winnerSeatNumber,
-.winnerCountdown {
+.winnerSeatNumber {
   position: relative;
 }
 
@@ -1004,20 +994,6 @@ h2 {
   color: #4b5563;
   font-size: 16px;
   font-weight: 550;
-}
-
-.winnerCountdown {
-  display: grid;
-  place-items: center;
-  min-height: 48px;
-}
-
-.winnerCountdown strong {
-  color: #4c20ff;
-  font-size: 38px;
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
 }
 
 .latestWinnerBadge {
@@ -1402,32 +1378,6 @@ h2 {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes modalBackdropOut {
-  from { background: rgba(4, 11, 22, 0.66); }
-  to {
-    background: rgba(4, 11, 22, 0);
-    backdrop-filter: blur(0) saturate(1);
-  }
-}
-
-@keyframes winnerModalToBadge {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  70% {
-    opacity: 0.96;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(
-        calc(var(--flight-target-x) - 50vw),
-        calc(var(--flight-target-y) - 50vh)
-      )
-      scale(0.16);
   }
 }
 
