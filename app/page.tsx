@@ -141,10 +141,6 @@ function getSeatLabel(seat: Seat) {
   return `${seat.row}${seat.number + offset}`;
 }
 
-function getWinnerContactLabel(winner: Winner) {
-  return winner.name || winner.phone || "ไม่มีข้อมูลผู้จอง";
-}
-
 function getBookedSeats(reservation: Reservation) {
   return Array.from(SEAT_RESERVATIONS.entries())
     .filter(([, candidate]) => (
@@ -177,7 +173,6 @@ export default function Home() {
   const [theaterScale, setTheaterScale] = useState(1);
   const [isTheaterMeasured, setIsTheaterMeasured] = useState(false);
   const theaterShellRef = useRef<HTMLElement | null>(null);
-  const latestWinnerBadgeRef = useRef<HTMLElement | null>(null);
   const timerRef = useRef<number | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const observedCommandIdRef = useRef<string | null>(null);
@@ -341,13 +336,6 @@ export default function Home() {
       setModalCountdown((current) => {
         if (current <= 1) {
           window.clearInterval(countdownTimer);
-          const badgeRect = latestWinnerBadgeRef.current?.getBoundingClientRect();
-          if (badgeRect) {
-            setWinnerFlightTarget({
-              x: badgeRect.left + badgeRect.width / 2,
-              y: badgeRect.top + badgeRect.height / 2,
-            });
-          }
           setIsModalDeparting(true);
           departureTimer = window.setTimeout(() => {
             setModalWinner(null);
@@ -370,14 +358,6 @@ export default function Home() {
     return new Map(winners.map((winner) => [winner.seatId, winner]));
   }, [winners]);
   const latestWinnerSeatId = pendingWinner?.seatId ?? winners.at(-1)?.seatId;
-  const latestWinner = pendingWinner ?? winners.at(-1);
-  const latestWinnerConfig = latestWinner ? DRAW_CONFIG[latestWinner.drawKey] : null;
-  const latestWinnerSeat = latestWinner
-    ? seats.find((seat) => seat.id === latestWinner.seatId)
-    : undefined;
-  const latestWinnerPool: SeatPool =
-    latestWinnerSeat && COOL_ROWS.has(latestWinnerSeat.row) ? "blue" : "green";
-  const latestWinnerColor = latestWinnerConfig?.color ?? LEGACY_AWARD_COLOR;
 
   const counts = useMemo(() => {
     return Object.fromEntries(
@@ -626,34 +606,6 @@ export default function Home() {
             src="/images/event-header-clean-type-transparent.png"
           />
         </header>
-
-        {latestWinner ? (
-          <aside
-            className={`latestWinnerBadge${modalWinner ? " isWaiting" : ""}`}
-            key={latestWinnerSeatId}
-            ref={latestWinnerBadgeRef}
-            aria-live="polite"
-            style={{ "--latest-award-color": latestWinnerColor } as React.CSSProperties}
-          >
-            <span
-              className={`legendSeatIcon latestWinnerSeatIcon ${latestWinnerPool}`}
-              aria-hidden="true"
-            >
-              <span className="legendSeatBack" />
-              <span className="legendSeatBase" />
-            </span>
-            <span className="latestWinnerDetails">
-              <strong>{latestWinner.label}</strong>
-              <small>{latestWinner.prize}</small>
-              <span className="latestWinnerPerson">
-                {getWinnerContactLabel(latestWinner)}
-              </span>
-              {latestWinner.name && latestWinner.phone ? (
-                <span className="latestWinnerPhone">{latestWinner.phone}</span>
-              ) : null}
-            </span>
-          </aside>
-        ) : null}
       </div>
 
       <div className="softwareCreditBar" aria-label="ผู้พัฒนาซอฟต์แวร์">
@@ -739,7 +691,6 @@ export default function Home() {
             </div>
 
           </section>
-          <WinnerHistoryPanel className="winnerHistorySide" winners={winners} />
           <div className="ambientStars" aria-hidden="true">
             {Array.from({ length: 3 }, (_, index) => (
               <span className="ambientStar" key={index} />
@@ -747,8 +698,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <WinnerHistoryPanel className="winnerHistoryMobile" winners={winners} />
 
       {modalWinner ? (
         <div
@@ -802,56 +751,6 @@ export default function Home() {
         </div>
       ) : null}
     </main>
-  );
-}
-
-function WinnerHistoryPanel({
-  className,
-  winners,
-}: {
-  className: string;
-  winners: Winner[];
-}) {
-  return (
-    <aside className={`winnerHistory ${className}`} aria-label="ประวัติผู้โชคดีที่ยืนยันแล้ว">
-      <h3>ผู้โชคดี</h3>
-      <div className="winnerHistoryGroups">
-        {(Object.keys(DRAW_CONFIG) as AwardDrawKey[]).map((key) => {
-          const config = DRAW_CONFIG[key];
-          const approvedWinners = winners.filter((winner) => winner.drawKey === key);
-
-          return (
-            <section
-              className="winnerHistoryGroup"
-              key={key}
-              style={{ "--history-color": config.color } as React.CSSProperties}
-            >
-              <header>
-                <span aria-hidden="true" />
-                <strong>{config.label}</strong>
-                <small>{approvedWinners.length}/{config.quota}</small>
-              </header>
-              <div className="winnerHistorySeats">
-                {approvedWinners.length > 0 ? (
-                  approvedWinners.map((winner) => (
-                    <div className="winnerHistoryRecord" key={winner.seatId}>
-                      <strong>{winner.label}</strong>
-                      <span>{getWinnerContactLabel(winner)}</span>
-                      <small>
-                        {winner.name && winner.phone ? `${winner.phone} · ` : ""}
-                        {winner.bookedSeats?.join(", ") || winner.label}
-                      </small>
-                    </div>
-                  ))
-                ) : (
-                  <em>ยังไม่มี</em>
-                )}
-              </div>
-            </section>
-          );
-        })}
-      </div>
-    </aside>
   );
 }
 

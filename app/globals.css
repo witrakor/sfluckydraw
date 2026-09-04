@@ -301,9 +301,8 @@ button {
 
 .eventTitleHeader {
   position: relative;
-  grid-column: 2;
   justify-self: center;
-  width: 100%;
+  width: min(650px, calc(100% - 24px));
   aspect-ratio: 1945 / 809;
   margin: 0;
 }
@@ -312,8 +311,7 @@ button {
   width: 100%;
   min-width: 0;
   display: grid;
-  grid-template-columns: 310px minmax(0, 650px) 310px;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   justify-content: center;
   padding: 6px 16px 2px;
@@ -1473,17 +1471,11 @@ h2 {
 
 @media (max-width: 1400px) {
   .eventTop {
-    grid-template-columns: minmax(0, 650px) 280px;
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .eventTitleHeader {
     grid-column: 1;
-  }
-
-  .latestWinnerBadge {
-    grid-column: 2;
-    width: 100%;
   }
 
   .winnerHistorySide {
@@ -1538,8 +1530,7 @@ h2 {
 
 @media (max-width: 900px) {
   .eventTop {
-    grid-template-columns: minmax(0, 1fr) 240px;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
     padding-inline: 10px;
   }
 
@@ -1620,14 +1611,8 @@ h2 {
     gap: 6px;
   }
 
-  .eventTitleHeader,
-  .latestWinnerBadge {
+  .eventTitleHeader {
     grid-column: 1;
-  }
-
-  .latestWinnerBadge {
-    justify-self: end;
-    width: min(280px, 72vw);
   }
 }
 
